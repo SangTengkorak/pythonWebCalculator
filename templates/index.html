@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Flask Web Calculator</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body style="background: rgb(16, 147, 141);">
+ <div class="login">
+	<h1>Basic Calculator</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="a" placeholder="Enter the first number" required="required" />
+        <input type="text" name="b" placeholder="Enter the second number" required="required" />
+        <!-- <input type="text" name="operation" placeholder="add / subtract / divide / multiply" required="required" /> -->
+        <!-- <label for="operation">Choose an Operation:</label> -->
+        <!-- <select name="operation" id="operation">
+          <option value="add">Add</option>
+          <option value="subtract">Subtract</option>
+          <option value="divide">Divide</option>
+          <option value="multiply">Multiply</option>
+        </select> -->
+        <!-- <button type="submit" class="btn btn-primary btn-block btn-large">Calculate</button> -->
+        <button type="submit" name="operation" value="add" class="btn btn-primary btn-block btn-large">Add</button>
+        <button type="submit" name="operation" value="subtract" class="btn btn-primary btn-block btn-large">Subtract</button>
+        <button type="submit" name="operation" value="divide" class="btn btn-primary btn-block btn-large">Divide</button>
+        <button type="submit" name="operation" value="multiply" class="btn btn-primary btn-block btn-large">Multiply</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+</body>
+</html>
